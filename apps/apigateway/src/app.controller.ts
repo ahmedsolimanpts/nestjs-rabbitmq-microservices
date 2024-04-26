@@ -13,7 +13,7 @@ export class AppController {
 
   @Post()
   async createOrder(@Body() payload: CreateOrderDto) {
-    return await this.ordersClient.send({ cmd: 'create_order' }, payload);
+    return await this.ordersClient.emit({ cmd: 'create_order' }, payload);
   }
 
   @Get()
