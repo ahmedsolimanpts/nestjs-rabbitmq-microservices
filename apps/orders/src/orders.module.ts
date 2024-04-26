@@ -4,6 +4,7 @@ import { OrdersService } from './orders.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as joi from 'joi';
+import { Order, OrderSchema } from './Schema/Order.Schema';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import * as joi from 'joi';
       }),
       inject: [ConfigService],
     }),
+    MongooseModule.forFeature([{ name: Order.name, schema: OrderSchema }]),
   ],
   controllers: [OrdersController],
   providers: [OrdersService],

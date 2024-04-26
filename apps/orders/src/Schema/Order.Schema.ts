@@ -1,6 +1,11 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 @Schema()
-export class Order {}
+export class Order {
+  @Prop()
+  type: string;
+  @Prop()
+  amount: number;
+}
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
